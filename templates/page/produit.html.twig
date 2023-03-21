@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<style>
+  .container{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px }
+  .coter{
+    grid-area:1/1/6/2;
+    background-color: blue;
+  }
+  .containerImage{
+    background-color: yellow;
+    grid-area: 1 /2/4/6;
+    height:400px;
+  }
+  .description{
+    background-color: red;
+    grid-area: 4/2/6/6;
+  }
+  
+</style>
+{% endblock %}
+{% block body %}
+    {% include "_partiel/_navHome.html.twig" %}
+    <div class='container'>
+      <div class="coter"> afqsfsdsc
+      </div>
+      <div class="containerImage"> <p style="text-align:end">qdqdqsdq </p>
+        <div class= "image">image</div>
+      </div>
+      <div class='description'> qsdqdqs</div>
+    </div>
+    
+{% endblock %}
+{% block addjavascripts %}
+  <script>
+				function toggleMenu() {
+					const navbar = document.querySelector('.test');
+					const burger = document.querySelector('#burger');
+                    const burgerclose = document.querySelector('#burgerClose')
+					burger.addEventListener('click', () => {
+						navbar.classList.add('show-nav');
+					})
+                    burgerclose.addEventListener('click', () => {
+                        navbar.classList.remove('show-nav');
+                    })
+
+					
+				}
+				toggleMenu();
+	</script>
+{% endblock %}

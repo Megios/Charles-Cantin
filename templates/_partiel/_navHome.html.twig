@@ -1,0 +1,141 @@
+<style>
+ .absolute{
+            position: sticky;
+            top: 0%;
+            margin-top: 2rem;
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+        }    
+		.bar{
+			display:block;
+			width:30px;
+			height: 4px;
+			position:relative;
+			background: var(--color-charte-secondary);
+			border-radius:3px;
+			margin: 10px;
+		}
+		.bar::before, .bar::after{
+			content:"";
+			width: 30px;
+			height: 4px;
+			position:absolute;
+			left: 0;
+			background:var(--color-charte-secondary);
+			border-radius:3px;
+
+		}
+		.bar::before {
+			transform:translateY(-12px);
+		}
+		.bar::after {
+			transform:translateY(12px);
+		}
+        .burger{
+            background:transparent;
+            border:none;
+            padding: 12px 0; 
+            z-index: 3;
+        }
+        
+        .inline{
+            display:flex;
+            flex-direction:row;
+            align-items:start;
+
+        }
+        .inline p, .inline span{
+            margin:0 2rem 0 2rem;
+            
+        }
+        .absolute h1{
+            font-size: 5rem;
+            margin-left: 20%;
+            margin-top: 0;
+        }
+        .burger:hover{
+            cursor: pointer;
+        }
+        
+        .test{
+            background-color: green;
+            position: absolute;
+            top:0;
+            width: 30vw;
+            height: 100dvh;
+            visibility: hidden;
+            opacity:0;
+            transition:visibility 0.3s linear,opacity 0.3s linear;
+        }
+        .show-nav{
+            visibility: visible;
+            opacity:1;
+        }
+        #burgerClose span{
+                margin: 0 2rem 0 2rem;
+                background: transparent;
+        }
+        #burgerClose{
+            margin-top: 2rem;
+        }
+        #burgerClose span:before{
+            transform: rotate(45deg);
+        }
+        #burgerClose span:after{
+            transform: rotate(-45deg);
+        }
+        .test h2{
+            text-align:center;
+        }
+        .test ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: calc(100dvh - 18rem);
+            justify-content: space-around;
+        }
+        li{
+            list-style:none;
+        }
+        @media screen and (max-width:700px){
+            .test{
+                width: 100vw;
+            }
+            h1{
+                font-size:3rem!important;
+            }
+        }
+        @media screen and (max-width:500px){
+            h1{
+                font-size:2rem!important;
+            }
+        }
+</style>
+
+<header class='absolute'>
+        <div class='inline'>
+		    <button class="burger" id="burger">
+			    <span class='bar'></span>
+		    </button>
+            <h1> Halo </h1>
+        </div>
+        <div class='inline'>
+            <p>Se connecter</p>
+            <span> Panier </span>
+        </div>
+    </header>
+    <div class='test'>
+        <button class="burger" id="burgerClose">
+			<span class='bar'></span>
+		</button>
+        <h2> Catégorie </h2>
+        <ul>
+            <li> <a href="{{ path('app_produit') }}"> produit </a></li>
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+        </ul>
+    </div>

@@ -1,0 +1,13 @@
+html,body,ul{
+    margin: 0;
+    padding: 0;
+}
+.sf-toolbar{
+    display: none;
+}
+:root {
+    --color-charte-primary: white;
+    --color-charte-secondary: black;
+}
+
+
