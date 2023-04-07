@@ -1,0 +1,14 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block body %}
+  <div>
+  <h1> test </h1>
+    {{ form_start(OffreForm) }}
+      {{form_row( OffreForm.Name)}}
+      {{form_row( OffreForm.Description)}}
+      {{form_row( OffreForm.Prix)}}
+      {{form_row( OffreForm.Ordre)}}
+    <button type=submit> Envoyer </button>
+    {{form_end(OffreForm)}}
+  </div>
+{% endblock %}

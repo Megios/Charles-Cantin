@@ -7,11 +7,13 @@
       {% for categorie in categorieTab %}
         <li>
           {{categorie.getNom()}}
+          <a href="{{ path('edit_categories',{'id':categorie.getUuid()}) }}"> Modifier </a>
         </li>
         
       {% endfor %}
     </ul>
-
+  <a href="{{ path('add_categorie')}}"> Ajouter une catégorie</a>
+  <a href="{{ path('app_admin')}}"> Retour </a>
 
   </main>
 {% endblock %}

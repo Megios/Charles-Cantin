@@ -1,11 +1,12 @@
 {% extends "baseAdmin.html.twig" %}
 
 {% block body %}
-  <div>
-  <h1> test </h1>
+  <main>
+    <h1> Modification de la catégorie {{ categorie.getNom() }} </h1>
     {{form_start(categorieForm)}}
     {{form_row( categorieForm.Nom)}}
     <button type='submit'> Envoyer </button>
     {{form_end(categorieForm)}}
-  </div>
+
+  </main>
 {% endblock %}

@@ -46,7 +46,7 @@ class AdminCategorieController extends AbstractController
     {
       $id = $request->get('id');
       try{
-        $categorie= $categorieRepository->findOneBy(array('uuid' => $id));
+        $categorie= $categorieRepository->findOneBy(array('id' => $id));
       }catch(\Exception $e){
         $this->addFlash('danger', message:'Pas d\'categories correspondante');
         $this->redirectToRoute('app_admin');
@@ -57,14 +57,14 @@ class AdminCategorieController extends AbstractController
       $categorieForm->handleRequest($request);
 
       if ($categorieForm->isSubmitted() && $categorieForm->isValid()){
-        $nom = $categorieForm->get('nom')->getData();
+        $nom = $categorieForm->get('Nom')->getData();
         $categorie->setNom($nom);
         $em->persist($categorie);
         $em->flush();
         $this->addFlash('success',message:'Elements modifier avec succès');
         return $this->redirectToRoute('app_categories');
       }
-    return $this->render('admin/editcategories.html.twig', ["categorieForm" => $categorieForm->createView()]);
+    return $this->render('admin/editcategories.html.twig', ["categorieForm" => $categorieForm->createView(), "categorie" => $categorie]);
   }
 
   #[Route('admin/categories/remove/{id}', name:'remove')]

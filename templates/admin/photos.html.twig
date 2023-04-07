@@ -2,7 +2,7 @@
 
 {% block body %}
   <main>
-    <h1> Les phtotos </h1>
+    <h1> Les photos </h1>
     <ul>
       {% for photo in photos %}
         <li>
@@ -11,7 +11,7 @@
         
       {% endfor %}
     </ul>
-
+  <a href="{{ path('add_photo')}}"> Ajouter une photo </a>
 
   </main>
 {% endblock %}

@@ -6,12 +6,16 @@
     <ul>
       {% for offre in offres %}
         <li>
-          {{offres.getNom()}}
+          {{offre.getName()}}
+          {{offre.getDescription()}}
+          {{offre.affichePrix()}}
+          {{offre.getOrdre()}}
+          <a href="{{ path('edit_offres',{'id':offre.getUuid()}) }}"> Modifier </a>
+          <a href="{{ path('delete_offres',{'id':offre.getUuid()}) }}"> Supprimer </a>
         </li>
-        
-      {% endfor %}zkhdjke"hchfjhc
+      {% endfor %}
     </ul>
-
-
+    <a href="{{ path('add_offres')}}"> Ajouter une offre<a>
+    <a href="{{ path('app_admin')}}"> Retour </a>
   </main>
 {% endblock %}
