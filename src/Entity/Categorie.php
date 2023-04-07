@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -14,9 +15,10 @@ class Categorie
     
     #[ORM\Id]
     #[ORM\Column(type: Types::GUID)]
-    private string $uuid;
+    private string $id;
 
     #[ORM\Column(length: 255)]
+    #[Assert\notBlank(message: 'le nom du produit ne peut pas être vide')]
     private string $Nom;
 
 
@@ -25,7 +27,7 @@ class Categorie
 
     public function __construct()
     {
-        $this->uuid = uniqid();
+        $this->id = uniqid();
         $this->photos = new ArrayCollection();
     }
 
@@ -43,7 +45,7 @@ class Categorie
 
     public function getUuid(): string
     {
-        return $this->uuid;
+        return $this->id;
     }
 
     /**

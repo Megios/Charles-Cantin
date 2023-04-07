@@ -1,0 +1,17 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block body %}
+  <main>
+    <h1> Les phtotos </h1>
+    <ul>
+      {% for photo in photos %}
+        <li>
+          {{photo.getTitre()}}
+        </li>
+        
+      {% endfor %}
+    </ul>
+
+
+  </main>
+{% endblock %}

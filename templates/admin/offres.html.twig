@@ -1,0 +1,17 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block body %}
+  <main>
+    <h1> Les offres </h1>
+    <ul>
+      {% for offre in offres %}
+        <li>
+          {{offres.getNom()}}
+        </li>
+        
+      {% endfor %}zkhdjke"hchfjhc
+    </ul>
+
+
+  </main>
+{% endblock %}

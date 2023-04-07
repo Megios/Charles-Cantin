@@ -5,18 +5,21 @@ namespace App\Entity;
 use App\Repository\OffreRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OffreRepository::class)]
 class Offre
 {
 
     #[ORM\Column(length: 255)]
-    private string $Titre;
+    #[Assert\NotBlank(message: 'Le nom du produits ne peux pas être vide')]
+    private string $Name;
 
     #[ORM\Column(type: Types::TEXT)]
     private string $Description;
 
     #[ORM\Column]
+    #[Assert\Positive(message:'Le prix doit être positif')]
     private float $Prix;
 
     #[ORM\Column(type: Types::SMALLINT)]
@@ -31,14 +34,14 @@ class Offre
         $this->uuid=uniqid();
     }
 
-    public function getTitre(): string
+    public function getName(): string
     {
-        return $this->Titre;
+        return $this->Name;
     }
 
-    public function setTitre(string $Titre): self
+    public function setName(string $name): self
     {
-        $this->Titre = $Titre;
+        $this->Name = $name;
 
         return $this;
     }

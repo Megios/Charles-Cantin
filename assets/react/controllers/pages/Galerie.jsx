@@ -17,7 +17,7 @@ const Galerie = () => {
     "CouplePortrait",
   ];
   useEffect(() => {
-    axios.get("http://localhost:3200/photos").then((res) => setData(res.data));
+    axios.get("/getPhotos").then((res) => setData(res.data.data));
   }, []);
 
   return (

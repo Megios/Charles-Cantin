@@ -1,0 +1,17 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block body %}
+  <main>
+    <h1> Les Catégories </h1>
+    <ul>
+      {% for categorie in categorieTab %}
+        <li>
+          {{categorie.getNom()}}
+        </li>
+        
+      {% endfor %}
+    </ul>
+
+
+  </main>
+{% endblock %}

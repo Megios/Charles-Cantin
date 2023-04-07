@@ -32,6 +32,12 @@ const Front = (props ) => {
       path:"/contact",
       element: <Contact/>
     }
+    ,
+    {
+      path: "/*",
+      element: <Home />
+    }
+
   ])
   props.rooty.render((
     <>

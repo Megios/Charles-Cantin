@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
 class Photo
@@ -17,15 +18,19 @@ class Photo
     private string $uuid;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'le titre de la photo ne peux pas être vide')]
+    #[Assert\Length(max:250, maxMessage:'Le titre ne peux pas dépassez {{ limit }} caractères')]
     private string $titre;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'la photo est nécéssaire')]
     private string $source;
 
     #[ORM\Column(length: 255)]
     private string $type;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'photos')]
+    #[ORM\JoinColumn(name:"categorie_uuid", referencedColumnName:"uuid")]
     private Collection $categories;
 
     public function __construct()
@@ -34,7 +39,7 @@ class Photo
         $this->categories = new ArrayCollection();
     }
 
-    public function getUuid(): ?string
+    public function getUuid(): string
     {
         return $this->uuid;
     }
@@ -46,7 +51,7 @@ class Photo
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getTitre(): string
     {
         return $this->titre;
     }
@@ -58,7 +63,7 @@ class Photo
         return $this;
     }
 
-    public function getSource(): ?string
+    public function getSource(): string
     {
         return $this->source;
     }
@@ -70,7 +75,7 @@ class Photo
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): string
     {
         return $this->type;
     }

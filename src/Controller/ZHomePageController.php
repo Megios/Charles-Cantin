@@ -7,14 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomePageController extends AbstractController
+class ZHomePageController extends AbstractController
 {
     #[Route('/produit', name: 'app_produit')]
     public function produit(): Response
     {
         return $this->render('page/produit.html.twig');
     }
-   
+    
     
      /**
      * @Route("{slug}", name="homepage", requirements={"slug"=".+"})
