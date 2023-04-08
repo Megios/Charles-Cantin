@@ -8,8 +8,8 @@ const Offre = () => {
   const [offres, setOffres] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3200/prestations")
-      .then((res) => setOffres(res.data));
+      .get("/getOffres")
+      .then((res) => setOffres(res.data.data));
   }, []);
   return (
     <Wrapper>

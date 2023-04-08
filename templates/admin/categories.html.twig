@@ -8,6 +8,7 @@
         <li>
           {{categorie.getNom()}}
           <a href="{{ path('edit_categories',{'id':categorie.getUuid()}) }}"> Modifier </a>
+          <a href="{{ path('delete_categorie',{'id':categorie.getUuid()}) }}"> Supprimer </a>
         </li>
         
       {% endfor %}

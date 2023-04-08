@@ -67,21 +67,22 @@ class AdminCategorieController extends AbstractController
     return $this->render('admin/editcategories.html.twig', ["categorieForm" => $categorieForm->createView(), "categorie" => $categorie]);
   }
 
-  #[Route('admin/categories/remove/{id}', name:'remove')]
-    public function RemoveCategorie(Request $request, categorieRepository $categorieRepository, String $id): Response
+  #[Route('admin/categories/remove/{id}', name:'delete_categorie')]
+    public function RemoveCategorie(Request $request, EntityManagerInterface $em,categorieRepository $categorieRepository, String $id): Response
     {
       $id = $request->get('id');
       try{
-        $categorie= $categorieRepository->findOneBy(array('uuid' => $id));
-        $categorieRepository->remove($categorie);
-        $categorieRepository->getEntityManager()->flush();
+        $categorie= $categorieRepository->findOneBy(array('id' => $id));
+        
 
       }catch(\Exception $e){
         $this->addFlash('danger', message:'Pas d\'categories correspondante');
         $this->redirectToRoute('app_admin');
       }
-
-    return $this->render('admin/removecategories.html.twig' );
+      $categorieRepository->remove($categorie);
+      $em->flush();
+      $this->addFlash('success',message:'Elements supprimé avec succès');
+    return $this->redirectToRoute('app_categories' );
   }
 
 

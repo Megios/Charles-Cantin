@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Toast = () => {
+const Toast = (props) => {
   const [conteur, setConteur] = useState(true);
-
   const fermetureToast = (e) => {
     e.preventDefault();
     setConteur(false);
+    props.action(false);
   };
   return (
     <Wrapper className={conteur ? "test" : "test2"}>
-      <span>Message envoyer</span>
+      <span>{props.message}</span>
       <button onClick={fermetureToast}>X</button>
     </Wrapper>
   );
@@ -26,9 +26,8 @@ const Wrapper = styled.div`
   background: #3a3a3a;
   border-radius: 10px;
   box-shadow: 0px 1px 4px 6px black;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
+  bottom: 20%;
+  align-items:center;
   &.test2 {
     display: none;
   }

@@ -30,7 +30,7 @@ class Photo
     private string $type;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'photos')]
-    #[ORM\JoinColumn(name:"categorie_uuid", referencedColumnName:"uuid")]
+    #[ORM\JoinColumn(name:"photo_uuid", referencedColumnName:"uuid", onDelete:"CASCADE")]
     private Collection $categories;
 
     public function __construct()

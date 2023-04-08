@@ -64,7 +64,7 @@ class Offre
     }
     public function affichePrix():String
     {
-        return substr($this->Prix,0,-2) . '€' . substr($this->Prix,-2);
+        return substr($this->Prix,0,-2) . ',' . substr($this->Prix,-2) . ' euros';
     }
 
     public function setPrix(float $Prix): self

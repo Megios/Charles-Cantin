@@ -73,20 +73,27 @@ class AdminPhotoController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[Route('/admin/removeImage/{id}', name: 'app_galerie_remove')]
+    #[Route('/admin/removeImage/{id}', name: 'delete_photo')]
     public function remove(Request $request, EntityManagerInterface $em,Photo $image)
     {
         $id = $request->get('id');
         $image= $em->getRepository(Photo::class)->findoneBy(array('uuid'=>$id));
         if ($image){
-            $nomImage= $this->getParameter("images_directory").'/'.$image->getimageFilename();
+            $nomImage= $this->getParameter("images_directory").'/'.$image->getSource();
             if(file_exists($nomImage)){
                 unlink($nomImage);
             }
+            $categories=$image->getCategories();
+            foreach ($categories as $categorie ) {
+                $categorie->removePhoto($image);
+                $image->removeCategory($categorie);
+            }
+            $em->remove($image);
+            $em->flush();
+            $this->addFlash('success',message:'Elements supprimé avec succès');
         }
-        $em->remove($image);
-        $em->flush();
-        return $this->redirectToRoute('app_structure');
+        
+        return $this->redirectToRoute('app_photos');
 }
 }
 ?>

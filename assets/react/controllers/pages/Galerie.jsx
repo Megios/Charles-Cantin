@@ -8,16 +8,17 @@ import Footer from "../components/Footer";
 const Galerie = () => {
   const [data, setData] = useState([]);
   const [selectedCat, setSelectedCat] = useState();
-  const categories = [
-    "Grossesse",
-    "Mariage",
-    "Bébé",
-    "Famille",
-    "Baptême",
-    "CouplePortrait",
-  ];
+  const [categories, setCategories]= useState([]);
+  // [
+  //   "Grossesse",
+  //   "Mariage",
+  //   "Bébé",
+  //   "Famille",
+  //   "Baptême",
+  //   "CouplePortrait",
+  // ];
   useEffect(() => {
-    axios.get("/getPhotos").then((res) => setData(res.data.data));
+    axios.get("/getPhotos").then((res) => {setData(res.data.data);setCategories(res.data.categories)});
   }, []);
 
   return (

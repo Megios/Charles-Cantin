@@ -7,11 +7,16 @@
       {% for photo in photos %}
         <li>
           {{photo.getTitre()}}
+          {% for categorie in photo.getCategories %}
+            {{categorie.getNom()}}
+          {% endfor %}
+          <a href="{{ path('delete_photo',{'id':photo.getUuid()}) }}"> Supprimer </a>
         </li>
         
       {% endfor %}
     </ul>
   <a href="{{ path('add_photo')}}"> Ajouter une photo </a>
+  <a href="{{ path('app_admin')}}"> Retour </a>
 
   </main>
 {% endblock %}

@@ -10,7 +10,8 @@ const Formulaire = () => {
       envoi.nom.valid === true &&
       envoi.prenom.valid === true &&
       envoi.email.valid === true &&
-      envoi.message.valid === true
+      envoi.message.valid === true &&
+      inputRefNom.current.value !== ""
     ) {
       envoiApresValidation(envoi);
       inputRefNom.current.value = "";
@@ -19,7 +20,8 @@ const Formulaire = () => {
       inputRefMessage.current.value = "";
     }
   });
-  var [toast, setToast] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [toastMessage,setToastMessage] = useState('');
   const inputRefNom = useRef();
   const inputRefPrenom = useRef();
   const inputRefEmail = useRef();
@@ -35,8 +37,8 @@ const Formulaire = () => {
   );
   function envoiApresValidation(object) {
     axios
-      .post("http://localhost:3200/contact", { object })
-      .then((res) => console.log(res))
+      .post("/addContact", { object })
+      .then((res) => {(res.status===200 || res.status===201)?setToastMessage("Message Envoyer"):setToastMessage("Une erreur est survenue") })
       .then(setToast(true));
   }
   function testVariable() {
@@ -88,7 +90,7 @@ const Formulaire = () => {
 
   return (
     <Form>
-      {toast ? <Toast></Toast> : null}
+      {toast ? <Toast message={toastMessage} action={setToast}></Toast> : null}
       <h2>Nous contacté</h2>
       <FormGroupe>
         <label id="nom">Votre Nom*</label>
