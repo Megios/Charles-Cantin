@@ -1,17 +1,28 @@
 {% extends "baseAdmin.html.twig" %}
-
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleAdmin.css')}}">
+{% endblock %}
 {% block body %}
   <main>
     <h1> Les photos </h1>
     <ul>
       {% for photo in photos %}
-        <li>
-          {{photo.getTitre()}}
-          {% for categorie in photo.getCategories %}
-            {{categorie.getNom()}}
-          {% endfor %}
-          <a href="{{ path('delete_photo',{'id':photo.getUuid()}) }}"> Supprimer </a>
-        </li>
+        <div class="card">
+          <div class="headCard">
+            <h2>{{photo.getTitre()}} </h2>
+          </div>
+          <div class="contentCard">
+            <p>type: {{photo.getType}}</p>
+            <ul>
+              {% for categorie in photo.getCategories %}
+                <li>{{categorie.getNom()}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="action">
+            <a href="{{ path('delete_photo',{'id':photo.getUuid()}) }}"> Supprimer </a>
+          </div>
+        </div>
         
       {% endfor %}
     </ul>

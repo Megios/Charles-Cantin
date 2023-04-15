@@ -1,0 +1,38 @@
+{% extends "baseAdmin.html.twig" %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleAdmin2.css')}}">
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1> Les Contacts </h1>
+    <h2> Non lu </h2>
+    <ul>
+      {% for contact in contactsNonLu %}
+        <div class="listMessage">
+          <div class="">
+            <h3>Contact de {{contact.getName()}} {{contact.getFirstname()}}</h3>
+            <p>le {{contact.afficheSendAt()}} </p>
+          </div>
+          <div class="action">
+            <a href="{{ path('read_contacts',{'id':contact.getId()}) }}"> Voir </a>
+          </div>
+        </div>
+      {% endfor %}
+    </ul>
+    <h2> lu </h2>
+    <ul>
+      {% for contact in contactsLu %}
+        <div class="listMessage">
+          <h3>Contact de {{contact.getName()}} {{contact.getFirstname()}} le {{contact.afficheSendAt()}} </h3>
+          <div class="action">
+            <a href="{{ path('read_contacts',{'id':contact.getId()}) }}"> Voir </a>
+            <a href="{{ path('delete_contact',{'id':contact.getId()}) }}"> Supprimer </a>
+          </div>
+        </div>
+      {% endfor %}
+    </ul>
+  <a href="{{ path('app_admin')}}"> Retour </a>
+
+  </main>
+{% endblock %}

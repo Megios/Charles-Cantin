@@ -111,6 +111,11 @@ class Contact
 
     public function getSendAt(): ?\DateTimeImmutable
     {
-        return $this->sendAt;
+    return $this->sendAt;
+    }
+    public function afficheSendAt(): ?string
+    {
+
+    return date_format($this->sendAt,'d/m/Y: g:i::s');
     }
 }

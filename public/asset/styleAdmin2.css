@@ -1,0 +1,44 @@
+main{
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align:center;
+}
+.listMessage{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  background: #80808038;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 1px #686464;
+  
+  text-align: start;
+}
+.headCard{
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  background: white;
+}
+.headCard h2{
+  margin: 0;
+}
+.contentCard{
+  height: 100%;
+  padding: 10px 5px;
+}
+
+.action{
+  display:flex;
+  justify-content: space-around;
+  background: white;
+  color: black;
+  padding: 5px;
+  box-shadow: 0px 0px 5px 1px #686464;
+}
+.action a{
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  border: 0 1px 0 0 solid black;
+}
