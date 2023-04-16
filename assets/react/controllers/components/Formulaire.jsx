@@ -122,9 +122,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-self: start;
-  margin-left: 10vw;
+  margin: auto;
   margin-bottom: 10vh;
-  width: 50%;
   background: rgba(0, 0, 0, 0.4);
   label {
     font-size: 1.3rem;

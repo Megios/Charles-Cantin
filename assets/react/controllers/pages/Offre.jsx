@@ -14,20 +14,29 @@ const Offre = () => {
   return (
     <Wrapper>
       <Header />
-      <h1>Nos Offres</h1>
-      {offres.map((prestation) => (
-        <Prestation objet={prestation} />
-      ))}
+      <Main>
+        <h1>Nos Offres</h1>
+        {offres.map((prestation) => (
+          <Prestation objet={prestation} />
+        ))}
+      </Main>
       <Footer />
     </Wrapper>
   );
 };
 const Wrapper = styled.div`
   position: relative;
-  font-family: "font-1";
   text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height: 100vh;
+`;
+const Main= styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: auto;
+  flex:1;
 `;
 export default Offre;

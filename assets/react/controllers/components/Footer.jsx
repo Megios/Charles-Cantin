@@ -11,15 +11,15 @@ const Footer = () => {
   );
 };
 const Wrapper = styled.div`
-  position: absolute;
+  // position: absolute;
   display: flex;
   flex-direction: column;
   background: black;
   width: 100%;
-  bottom: -120px;
-  height: 80px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  // bottom: -120px;
+  // height: 80px;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
   text-align: center;
   span {
     color: white;

@@ -35,7 +35,7 @@ const Navigation = () => {
 };
 const Li = styled.li`
   list-style-type: none;
-  font-size: 2vw;
+  font-size: 2rem;
   transition: 0.2s;
   &:hover {
     color: #152028;
@@ -46,7 +46,15 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  justify-content: space-around;
+  width: 80%;
+  @media screen and (max-width: 796px){
+    flex-direction:column;
+    width: 100%;
+    li{
+      font-size: 1rem;
+    }
+  }
   a {
     border-radius: 30px;
     padding: 10px;
@@ -60,7 +68,7 @@ const Nav = styled.nav`
 const List = styled.ul`
   display: flex;
   justify-content: space-around;
-  width: 80vw;
+  width: 80%;
   margin: 0;
   padding: 0;
 `;

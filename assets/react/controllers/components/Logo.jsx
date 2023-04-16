@@ -17,5 +17,10 @@ const Wrapper = styled.div`
     border-radius: 50%;
     width: 8vw;
   }
+  @media screen and (max-width:796px){
+    img{
+      width: 20vw;
+    }
+  }
 `;
 export default Logo;

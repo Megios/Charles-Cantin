@@ -5,6 +5,14 @@
 
 {% block body %}
   <main>
+    <div class="info">
+      {% for flash_error in app.flashes('danger') %}
+          <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+      {% endfor %}
+      {% for flash_succes in app.flashes('success') %}
+          <div class="alert alert-success" role="alert">{{ flash_succes }}</div>
+      {% endfor %}
+    </div>
     <h1> Les Contacts </h1>
     <h2> Non lu </h2>
     <ul>
@@ -14,7 +22,7 @@
             <h3>Contact de {{contact.getName()}} {{contact.getFirstname()}}</h3>
             <p>le {{contact.afficheSendAt()}} </p>
           </div>
-          <div class="action">
+          <div class="actionRead">
             <a href="{{ path('read_contacts',{'id':contact.getId()}) }}"> Voir </a>
           </div>
         </div>
@@ -24,15 +32,18 @@
     <ul>
       {% for contact in contactsLu %}
         <div class="listMessage">
-          <h3>Contact de {{contact.getName()}} {{contact.getFirstname()}} le {{contact.afficheSendAt()}} </h3>
-          <div class="action">
+        <div>
+          <h3>Contact de {{contact.getName()}} {{contact.getFirstname()}} </h3>
+          <p>le {{contact.afficheSendAt()}} </p>
+        </div>
+          <div class="actionRead">
             <a href="{{ path('read_contacts',{'id':contact.getId()}) }}"> Voir </a>
             <a href="{{ path('delete_contact',{'id':contact.getId()}) }}"> Supprimer </a>
           </div>
         </div>
       {% endfor %}
     </ul>
-  <a href="{{ path('app_admin')}}"> Retour </a>
+  <a class="endLink" href="{{ path('app_admin')}}"> Retour </a>
 
   </main>
 {% endblock %}

@@ -19,7 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $uuid = null;
 
     #[ORM\Column(length:254, unique: true)]
-    #[Assert\Regex('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$', message:'le mail semble invalide')]
+    #[Assert\Regex('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$^', message:'le mail semble invalide')]
     private string $email;
     
     #[ORM\Column]
@@ -59,7 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->uuid;
+        return (string) $this->email;
     }
 
     /**

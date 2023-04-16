@@ -25,7 +25,7 @@ class ApiController extends AbstractController
       {
         $photos = $em->getRepository(Photo::class)->findAll();
         $categories = [];
-        foreach ($em->getRepository(Categorie::class)->findAll() as $categorie) {
+        foreach ($em->getRepository(Categorie::class)->categorieVide(false) as $categorie) {
           array_push($categories, $categorie->getNom());
         } ;
         $tableau = [];

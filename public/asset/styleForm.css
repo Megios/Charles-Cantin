@@ -1,0 +1,72 @@
+main{
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align:center;
+}
+
+
+.info{
+  position:relative;
+}
+.alert{
+  position: relative;
+  width: 80%;
+  padding: 10px;
+  margin: auto;
+}
+.alert-success {
+  background-color: rgba(8, 243, 59, 0.315);
+}
+.alert-danger {
+  background-color: rgba(236, 4, 4, 0.281);
+}
+.endLink{
+  display: inline-block;
+  color: black;
+  padding: 10px;
+  margin:10px;
+  text-decoration: none;
+  border: outset;
+  border-color: rgba(0, 0, 0, 0.582);
+  background: white;
+  color: black;
+  box-shadow: 0px 0px 5px 1px #686464;
+  border-radius: 15%;
+}
+.endLink:active{
+  box-shadow: 0px 0px 5px 1px inset #686464;
+  border: inset;
+  
+}
+form label{
+  width: 80%;
+  display:block;
+  text-align:start;
+  padding: 5px; 
+  font-size: 1rem;  
+  margin:auto; 
+}
+form input {
+  margin: auto;
+  display: block;
+  text-align:start;
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;   
+}
+form textarea {
+  margin: auto;
+  display: block;
+  text-align:start;
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;   
+}
+form select {
+  margin: auto;
+  display: block;
+  text-align:start;
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;   
+}

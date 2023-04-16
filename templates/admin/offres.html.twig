@@ -6,6 +6,14 @@
 
 {% block body %}
   <main>
+    <div class="info">
+      {% for flash_error in app.flashes('danger') %}
+          <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+      {% endfor %}
+      {% for flash_succes in app.flashes('success') %}
+          <div class="alert alert-success" role="alert">{{ flash_succes }}</div>
+      {% endfor %}
+    </div>
     <h1> Les offres </h1>
     <ul>
       {% for offre in offres %}
@@ -26,7 +34,7 @@
       {% endfor %}
     </ul>
 
-    <a href="{{ path('add_offres')}}"> Ajouter une offre<a>
-    <a href="{{ path('app_admin')}}"> Retour </a>
+    <a class="endLink" href="{{ path('add_offres')}}"> Ajouter une offre<a>
+    <a class="endLink" href="{{ path('app_admin')}}"> Retour </a>
   </main>
 {% endblock %}

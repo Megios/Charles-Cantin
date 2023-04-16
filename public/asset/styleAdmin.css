@@ -48,3 +48,50 @@ main>ul{
   text-decoration: none;
   border: 0 1px 0 0 solid black;
 }
+.info{
+  position:relative;
+}
+.alert{
+  position: relative;
+  width: 80%;
+  padding: 10px;
+  margin: auto;
+}
+.alert-success {
+  background-color: rgba(8, 243, 59, 0.315);
+}
+.alert-danger {
+  background-color: rgba(236, 4, 4, 0.281);
+}
+.endLink{
+  display: inline-block;
+  color: black;
+  padding: 10px;
+  margin:10px;
+  text-decoration: none;
+  border: outset;
+  border-color: rgba(0, 0, 0, 0.582);
+  background: white;
+  color: black;
+  box-shadow: 0px 0px 5px 1px #686464;
+  border-radius: 15%;
+}
+.endLink:active{
+  box-shadow: 0px 0px 5px 1px inset #686464;
+  border: inset;
+  
+}
+.blocks{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+.block{
+  width: 45%;
+  padding: 1%;
+  margin: 1%;
+  border:solid;
+  box-shadow: 0px 0px 5px 1px  #686464;
+}

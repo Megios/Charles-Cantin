@@ -1,22 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AdminController!{% endblock %}
-
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleAdmin.css')}}">
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    
 
-<div class="example-wrapper">
+<main>
+    <div class="info">
+      {% for flash_error in app.flashes('danger') %}
+          <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+      {% endfor %}
+      {% for flash_succes in app.flashes('success') %}
+          <div class="alert alert-success" role="alert">{{ flash_succes }}</div>
+      {% endfor %}
+
     <h1>Pannel administration</h1>
+    <div class="blocks">
+        <div class="block">
+            <a href="{{ path('app_offres')}}"> Les Offres </a>
+            <p> Nombre d'offres actuelle: {{offres|length}} </p>
+        </div>
+        <div class="block">
+            <a href="{{ path('app_categories')}}"> Les Catégories </a>
+            <p> Nombre de catégories non vide: {{categories|length}} </p>
+        </div>
+        <div class="block">
+            <a href="{{ path('app_photos')}}"> Les Photos </a>
+            <p> Nombre de photos actuelle: {{photos|length}} </p>
+        </div>
+        <div class="block">
+            <a href="{{ path('app_contacts')}}"> Les Contacts </a>
+            <p> Nombre de message non lu : {{messageNonLu|length}} </p>
+        </div>
+    </div>
+    
+    <a class="endLink" href="{{ path('homepage')}}"> Site client </a>
 
-    <ul>
-        <li><a href="{{ path('app_offres')}}"> Les Offres</li>
-        <li><a href="{{ path('app_categories')}}"> Les Catégories</li>
-        <li><a href="{{ path('app_photos')}}"> Les Photos</li>
-        <li><a href="{{ path('app_contacts')}}"> Les Contacts</li>
-        {# <li><a href="{{ path('app_offres')}}"> Les Contacts</li> #}
-    </ul>
 </div>
 {% endblock %}

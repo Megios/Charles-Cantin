@@ -1,15 +1,18 @@
 {% extends "baseAdmin.html.twig" %}
 
 {% block body %}
-  <div>
-  <h1> test </h1>
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleForm.css')}}">
+{% endblock %}
+  <main>
+  <h1> Ajout d'une photo </h1>
     {{ form_start(form, {'method': 'POST', 'enctype': 'multipart/form-data'}) }}
       {{form_row( form.titre)}}
       {{form_row( form.source)}}
       {{form_row( form.type)}}
       {{form_row( form.categories)}}
-    <button type=submit> Envoyer </button>
+    <button class='endLink 'type=submit> Envoyer </button>
     {{form_end(form)}}
-    <a href="{{ path('app_photos')}}"> Retour </a>
-  </div>
+    <a class="endLink" href="{{ path('app_photos')}}"> Retour </a>
+  </main>
 {% endblock %}

@@ -22,12 +22,17 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20vw;
+  width: 50%;
   background: #3a3a3a;
   border-radius: 10px;
   box-shadow: 0px 1px 4px 6px black;
+  left: 25%;
   bottom: 20%;
   align-items:center;
+  @media screen and (min-width: 796px){
+    width: 30%;
+    left: 35%;
+  }
   &.test2 {
     display: none;
   }
@@ -44,6 +49,7 @@ const Wrapper = styled.div`
       box-shadow: 1px 3px 10px 5px black;
     }
   }
+  
 `;
 
 export default Toast;

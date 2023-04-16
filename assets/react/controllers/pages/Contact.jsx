@@ -8,21 +8,23 @@ const Contact = () => {
   return (
     <Wrapper>
       <Header />
-      <h3>A propos de votre photographe</h3>
-      <p>
-        Deserunt minim ex aliqua consequat id non fugiat qui est tempor nostrud.
-        Velit fugiat voluptate nostrud adipisicing ipsum velit esse fugiat. Eu
-        do et irure mollit velit enim dolore id. Magna duis elit ex laboris
-        eiusmod. Aliquip aute adipisicing id occaecat ex cillum nisi irure
-        ullamco dolore. Tempor anim consequat elit id ipsum dolore minim minim
-        ullamco exercitation. Deserunt minim ex aliqua consequat id non fugiat
-        qui est tempor nostrud. Velit fugiat voluptate nostrud adipisicing ipsum
-        velit esse fugiat. Eu do et irure mollit velit enim dolore id. Magna
-        duis elit ex laboris eiusmod. Aliquip aute adipisicing id occaecat ex
-        cillum nisi irure ullamco dolore. Tempor anim consequat elit id ipsum
-        dolore minim minim ullamco exercitation.
-      </p>
-      <Formulaire />
+      <Main>
+        <h3>A propos de votre photographe</h3>
+        <p>
+          Deserunt minim ex aliqua consequat id non fugiat qui est tempor nostrud.
+          Velit fugiat voluptate nostrud adipisicing ipsum velit esse fugiat. Eu
+          do et irure mollit velit enim dolore id. Magna duis elit ex laboris
+          eiusmod. Aliquip aute adipisicing id occaecat ex cillum nisi irure
+          ullamco dolore. Tempor anim consequat elit id ipsum dolore minim minim
+          ullamco exercitation. Deserunt minim ex aliqua consequat id non fugiat
+          qui est tempor nostrud. Velit fugiat voluptate nostrud adipisicing ipsum
+          velit esse fugiat. Eu do et irure mollit velit enim dolore id. Magna
+          duis elit ex laboris eiusmod. Aliquip aute adipisicing id occaecat ex
+          cillum nisi irure ullamco dolore. Tempor anim consequat elit id ipsum
+          dolore minim minim ullamco exercitation.
+        </p>
+        <Formulaire />
+      </Main>
       <Footer />
     </Wrapper>
   );
@@ -30,15 +32,26 @@ const Contact = () => {
 
 const Wrapper = styled.div`
   position: relative;
-  font-family: "font-1";
   text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height: 100vh;
   p {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin: 20px;
     width: 80%;
   }
+`;
+const Main= styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex:1;
+  height: auto;
+  h3{
+    font-size: 1.4rem;
+  };
+  
 `;
 export default Contact;

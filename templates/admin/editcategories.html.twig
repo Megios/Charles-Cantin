@@ -1,13 +1,15 @@
 {% extends "baseAdmin.html.twig" %}
-
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleForm.css')}}">
+{% endblock %}
 {% block body %}
   <main>
     <h1> Modification de la catégorie {{ categorie.getNom() }} </h1>
     {{form_start(categorieForm)}}
     {{form_row( categorieForm.Nom)}}
-    <button type='submit'> Envoyer </button>
+    <button type='submit' class="endLink"> Envoyer </button>
     {{form_end(categorieForm)}}
-    <a href="{{ path('app_categories')}}"> Retour </a>
+    <a class="endLink" href="{{ path('app_categories')}}"> Retour </a>
 
   </main>
 {% endblock %}

@@ -1,20 +1,32 @@
 {% extends "baseAdmin.html.twig" %}
-
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('asset/styleAdmin2.css')}}">
+{% endblock %}
 {% block body %}
   <main>
   <h1> Lecture d'un contact </h1>
-  <h2> Contact de {{contact.getName()}} {{contact.getFirstname()}} </h2>
-  <h3> Email : {{contact.getEmail()}} </h3>
-  <p> Message : <br> {{contact.getMessage()}} </p>
-    
+  <div class="lecture">
+    <div class="Head">
+      <h2> Contact de {{contact.getName()}} {{contact.getFirstname()}} </h2>
+      <h3> Email :  </h3>
+      <div class="Content">
+        <p> {{contact.getEmail()}} </p>
+      </div>
+      <p>Message :</p>
+    </div>
+    <div class="Content">
+      <p> {{contact.getMessage()}} </p>
+    </div>
+    <div class="actionMulti">
     {% if contact.isIsRead() %}
       <a href="{{ path('isRead_contacts',{'id':contact.getId()}) }}"> Marquez comme non lu </a>
       {% else %}
         <a href="{{ path('isRead_contacts',{'id':contact.getId()}) }}"> Marquez comme vu </a>
     {% endif %}
     <a href="{{ path('delete_contact',{'id':contact.getId()}) }}"> Supprimer </a>
-    
-  <a href="{{ path('app_contacts')}}"> Retour </a>
+    </div>
+  </div>
+  <a class="endLink" href="{{ path('app_contacts')}}"> Retour </a>
 
   </main>
 {% endblock %}

@@ -39,20 +39,25 @@ class CategorieRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Categorie[] Returns an array of Categorie objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Categorie[] Returns an array of Categorie objects
+    */
+   public function categorieVide($value): array
+   {
+    if ($value===true) {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.photos is EMPTY')
+            ->getQuery()
+            ->getResult()
+        ;
+    }else{
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.photos is NOT EMPTY')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+   }
 
 //    public function findOneBySomeField($value): ?Categorie
 //    {
